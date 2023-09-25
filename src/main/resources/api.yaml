@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: location filter service
+  description: fetching filtered locations
+  version: 1.0.0
+paths:
+  /locations:
+    get:
+      summary: lists all filtered locations
+      description: list locations using search query and source lat/lng
+      operationId: getLocations
+      tags:
+        - Locations
+      parameters:
+        - name: coords
+          in: query
+          description: lat/lng of source location
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: number
+              format: double
+            oneOf:
+              - minItems: 2
+                maxItems: 2
+            default: [0,0]
+        - name: filter
+          in: query
+          description: pattern which will be used to search specific locations
+          required: false
+          schema:
+            type: string
+            default: ""
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                title: Location Response
+                $ref: '#/components/schemas/LocationResponse'
+
+components:
+  schemas:
+    LocationResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/PlaceDTO'
+
+    PlaceDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: object
+          $ref: '#/components/schemas/AddressDTO'
+        distance:
+          type: number
+          format: double
+      required:
+        - name
+        - distance
+
+    AddressDTO:
+      type: object
+      properties:
+        street:
+          type: string
+        zipCode:
+          type: string
+        city:
+          type: string

@@ -12,7 +12,7 @@ paths:
       tags:
         - Locations
       parameters:
-        - name: coords
+        - name: loc
           in: query
           description: lat/lng of source location
           required: false

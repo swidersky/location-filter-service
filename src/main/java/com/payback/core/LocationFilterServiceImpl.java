@@ -31,7 +31,7 @@ public class LocationFilterServiceImpl implements LocationFilterService {
                 .filter(location -> querySearchValidator.validate(location, filter))
                 .peek(enrichLocationByDistance)
                 .map(location -> locationMapper.map(location))
-                .sorted(Comparator.comparingDouble(PlaceDTO::getDistance))
+                .sorted(Comparator.comparingDouble(PlaceDTO::getDistance).reversed())
                 .collect(Collectors.toList());
 
     }

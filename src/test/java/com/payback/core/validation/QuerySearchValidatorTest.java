@@ -1,7 +1,5 @@
-package com.payback.domain.component;
+package com.payback.core.validation;
 
-import com.payback.core.validation.QuerySearchValidator;
-import com.payback.core.validation.SearchValidatorException;
 import com.payback.adapters.externalmodels.Place;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,7 +67,6 @@ public class QuerySearchValidatorTest {
         assertThrows(
                 SearchValidatorException.class,
                 () -> querySearchValidator.validate(place, CORRECT_FILTER));
-
     }
 
 }

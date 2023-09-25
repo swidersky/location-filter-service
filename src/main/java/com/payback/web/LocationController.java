@@ -23,9 +23,9 @@ public class LocationController implements LocationsApi {
 
 
     @Override
-    public ResponseEntity<List<PlaceDTO>> getLocations(List<Double> coords, String filter) {
+    public ResponseEntity<List<PlaceDTO>> getLocations(List<Double> loc, String filter) {
         List<Place> places = locationProvider.getData().getPlaces();
-        return ResponseEntity.ok(locationFilterService.filter(places, filter, coords.get(0), coords.get(1)));
+        return ResponseEntity.ok(locationFilterService.filter(places, filter, loc.get(0), loc.get(1)));
 
     }
 }

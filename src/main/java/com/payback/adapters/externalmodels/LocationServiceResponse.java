@@ -8,6 +8,6 @@ import java.util.List;
 public class LocationServiceResponse {
 
     private List<Place> places;
-    public int version;
+    private int version;
 
 }

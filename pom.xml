@@ -18,6 +18,12 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <spring-cloud-dependencies.version>2022.0.4</spring-cloud-dependencies.version>
+        <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
+        <hibernate-validator.version>7.0.1.Final</hibernate-validator.version>
+        <jackson-databind-nullable.version>0.2.0</jackson-databind-nullable.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
+        <junit-jupiter-engine.version>5.9.2</junit-jupiter-engine.version>
     </properties>
 
     <dependencyManagement>
@@ -25,7 +31,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2022.0.4</version>
+                <version>${spring-cloud-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -60,7 +66,7 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>3.0.0</version>
+            <version>${springfox-swagger2.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>io.swagger.core.v3</groupId>
@@ -71,19 +77,19 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>7.0.1.Final</version>
+            <version>${hibernate-validator.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
-            <version>0.2.0</version>
+            <version>${jackson-databind-nullable.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.1.0</version>
+            <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
         </dependency>
 
         <dependency>
@@ -94,7 +100,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.2</version>
+            <version>${junit-jupiter-engine.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
